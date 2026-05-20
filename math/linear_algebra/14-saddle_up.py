@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""this task is about matrix multiplication using import module and numpy."""
+"""this task is about matrix multiplication usinge numpy."""
 
 import numpy as np
 
