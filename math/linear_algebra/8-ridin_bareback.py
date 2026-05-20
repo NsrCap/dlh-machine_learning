@@ -3,9 +3,13 @@
 
 
 def mat_mul(mat1, mat2):
+    """this is documentation for matrix multiplication."""
+
     if len(mat1[0]) != len(mat2):
         return None
+
     result_mat = []
+
     for i in range(len(mat1)):
         row = []
         for k in range(len(mat2[0])):
@@ -15,4 +19,5 @@ def mat_mul(mat1, mat2):
                 P += x
             row.append(P)
         result_mat.append(row)
+
     return result_mat
