@@ -18,6 +18,10 @@ def minor(matrix):
             if isinstance(value, list):
                 raise TypeError("matrix must be 2D not 3D")
 
+    # base case
+    if len(matrix) == 1:
+        return [[1]]
+
     # check square
     for row in matrix:
         if len(row) != len(matrix):
@@ -27,6 +31,7 @@ def minor(matrix):
     for i in range(len(matrix)):
         row = []
         for j in range(len(matrix)):
+            # build smaller matrix by removing row i and column j
             smaller = []
             for r in range(len(matrix)):
                 if r == i:
