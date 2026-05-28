@@ -13,17 +13,16 @@ def minor(matrix):
         if not isinstance(row, list):
             raise TypeError("matrix must be a list of lists")
 
+    # check 2D not 3D
     for row in matrix:
         for value in row:
             if isinstance(value, list):
-                raise TypeError("matrix must be 2D not 3D")
+                raise TypeError("matrix must be a list of lists")
 
-    # base case
-    if len(matrix) == 1:
-        return [[1]]
-
+    # check empty
     if len(matrix) == 0:
         raise ValueError("matrix must be a non-empty square matrix")
+
     if matrix == [[]]:
         raise ValueError("matrix must be a non-empty square matrix")
 
@@ -32,22 +31,25 @@ def minor(matrix):
         if len(row) != len(matrix):
             raise ValueError("matrix must be a non-empty square matrix")
 
+    # base case
+    if len(matrix) == 1:
+        return [[1]]
+
+    # build minor matrix
     minor = []
     for i in range(len(matrix)):
         row = []
         for j in range(len(matrix)):
-            # build smaller matrix by removing row i and column j
             smaller = []
             for r in range(len(matrix)):
                 if r == i:
                     continue
-                else:
-                    small_row = []
-                    for c in range(len(matrix)):
-                        if c == j:
-                            continue
-                        small_row.append(matrix[r][c])
-                    smaller.append(small_row)
+                small_row = []
+                for c in range(len(matrix)):
+                    if c == j:
+                        continue
+                    small_row.append(matrix[r][c])
+                smaller.append(small_row)
             row.append(smaller)
         minor.append(row)
     return minor
