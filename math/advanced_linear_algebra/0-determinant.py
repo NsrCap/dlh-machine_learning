@@ -35,16 +35,22 @@ def determinant(matrix):
     # recursive case
     det = 0
 
+    # move across column of row 0, pick each element
     for j in range(len(matrix)):
         minor = []
+        sign = (-1) ** j
+        value = matrix[0][j]
+        # loop over remaining rows (r), strat from row 1 and move till end
         for r in range(1, len(matrix)):
             row = []
+            # move column by column (c) for each rows starting from 1
             for c in range(len(matrix)):
+                # if col idx matches col we are moving in top row (j), skip it
                 if c != j:
                     row.append(matrix[r][c])
             minor.append(row)
-        sign = (-1) ** j
-        value = matrix[0][j]
+
+        # function is calling itself before user call after codes end at return
         sub_det = determinant(minor)
         det += sign * value * sub_det
 
