@@ -43,10 +43,7 @@ def minor(matrix):
                 raise TypeError("matrix must be a list of lists")
 
     # check empty
-    if len(matrix) == 0:
-        raise ValueError("matrix must be a non-empty square matrix")
-
-    if matrix == [[]]:
+    if len(matrix) == 0 or matrix == [[]]:
         raise ValueError("matrix must be a non-empty square matrix")
 
     # check square
