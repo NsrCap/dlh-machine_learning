@@ -60,18 +60,24 @@ def minor(matrix):
 
     # build minor matrix
     minor_matrix = []
+    # loop over each row index i → build each row of minor matrix (Result)
     for i in range(len(matrix)):
         row = []
         for j in range(len(matrix)):
-            # build smaller matrix by removing row i and column j
+            # loop over each column index j → compute each value for row
+            # which value → require determinant of each element
+            # create smaller matrix to get determinant as valueforminormatrix
             smaller = []
+            # loop over rows of original matrix → pick rows except i
             for r in range(len(matrix)):
                 if r == i:
                     continue
                 small_row = []
+                # loop over columns of original matrix → pick columns except j
                 for c in range(len(matrix)):
                     if c == j:
                         continue
+                    # take element from original matrix
                     small_row.append(matrix[r][c])
                 smaller.append(small_row)
             # get determinant of smaller matrix
