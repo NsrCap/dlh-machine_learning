@@ -98,6 +98,6 @@ def cofactor(matrix):
     for i in range(len(matrix)):
         row = []
         for j in range(len(matrix)):
-            row.append((-1) ** (i + j) * minor(matirx))
+            row.append((-1) ** (i + j) * minor(matrix))
         cofact_matrix.append(row)
     return cofact_matrix
