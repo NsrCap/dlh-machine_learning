@@ -51,7 +51,7 @@ def determinant(matrix):
             smaller_matrix.append(row)
 
         # function is calling itself before user call after codes end at return
-        sub_det = determinant(smaller_matrix)
+        recursion = determinant(smaller_matrix)
         det += sign * value * sub_det
 
     return det
