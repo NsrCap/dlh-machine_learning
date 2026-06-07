@@ -5,10 +5,10 @@
 def poly_derivative(poly):
     """this is documentation to finding coefficient list of polynomial."""
 
-    if not isinstance(poly, list):
+    if not isinstance(poly, list) or len(poly) == 0:
         return None
     for element in poly:
-        if not isinstance(element, int):
+        if not isinstance(element, (int, float)):
             return None
 
     # base case derivative, like for constant its zero
