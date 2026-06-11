@@ -29,7 +29,3 @@ def two():
     plt.plot(x, y2, 'g-', label='Ra-226')
     plt.legend(loc='upper right')
     plt.show()
-    plt.savefig('exponential_decay.png')
-
-
-two()
