@@ -21,7 +21,3 @@ def change_scale():
     plt.yscale("log")
     plt.plot(x, y)
     plt.show()
-    plt.savefig("2-change_scale.png")
-
-
-change_scale()
