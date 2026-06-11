@@ -22,7 +22,7 @@ def two():
     # my code is here
     plt.xlabel("Time (years)")
     plt.ylabel("Fraction Remaining")
-    plt.title("Exponential Decay of C-14")
+    plt.title("Exponential Decay of Radioactive Elements")
     plt.xlim(0, 20000)
     plt.ylim(0, 1)
     plt.plot(x, y1, 'r:', label='C-14')
