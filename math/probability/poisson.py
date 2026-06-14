@@ -9,8 +9,9 @@ class Poisson:
         """constructor method."""
         self.data = data
         self.lambtha = float(lambtha)
-        if not lambtha >= 0:
-            raise ValueError("lambtha must be a positive value")
+        if data is None:
+            if lambtha <= 0:
+                raise ValueError("lambtha must be a positive value")
         if data is not None:
             if not isinstance(data, list):
                 raise TypeError("data must be a list")
