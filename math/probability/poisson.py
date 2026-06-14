@@ -42,7 +42,7 @@ class Poisson:
 
     def pmf(self, k):
         """Calculate PMF for a given number of “successes”"""
-        if isinstance(k, int):
+        if not isinstance(k, int):
             k = int(k)
         if k < 0:
             return 0
