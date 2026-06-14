@@ -17,7 +17,7 @@ class Normal:
     # for proabability, there is another formula
     # cdf = will be from z-score table
     # cdf accumulated probability from left to x continous random value
-    # z-score, any variable can be converted into ND
+    # z-score, used to find area under bell curve for given variable
     # z-score = (x - μ) / σ
     # 68-95-99.7% rule
     # when σ = 1, means move 1 std from mean (left/right)
@@ -56,3 +56,17 @@ class Normal:
                 stand_deviation = variance ** 0.5
             self.mean = average
             self.stddev = stand_deviation
+
+    def z_score(self, x):
+        """calcualte Z-score for given value of x."""
+        # normalisation of data
+        # z-score = (x - μ) / σ
+        # convert real value to standard unit
+        return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        # undo normalisation of data
+        # covert back z-score to real value
+        # x = μ + zσ
+        x = self.mean + z * self.stddev
+        return x
