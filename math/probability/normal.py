@@ -2,7 +2,7 @@
 """This module creates a class exponential"""
 
 
-class Exponential:
+class Normal:
     """This class represents an exponential distribution"""
     # if data is given, the lambtha is calculated from data,
     # else it will be provided by the user, by default lambdha is 1.0
