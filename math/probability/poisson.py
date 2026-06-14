@@ -50,7 +50,29 @@ class Poisson:
             # calculate PMF using the formula: (e^-lambtha * lambtha^k) / k!
             e = 2.7182818285
             factorial = 1
+            # loop for factorial calculation, starting from 1 to k
             for i in range(1, k + 1):
                 factorial *= i
             pmf = (e ** (-self.lambtha) * (self.lambtha ** k)) / factorial
             return pmf
+
+    def cdf(self, k):
+        # k is temporary variable used to calculate cdf only
+        # it is not attached to self as its not needed outside method
+        """Calculate CDF for a given number of “successes”"""
+        if not isinstance(k, int):
+            k = int(k)
+        if k < 0:
+            return 0
+        else:
+            # calculate CDF using the formula: sum of PMF from 0 to k
+            # How likely is it to have 0, 1, 2, OR 3 events (range)
+            # P(X <= k) = P(X=0) + P(X=1) + ... + P(X=k)
+            cdf = 0
+            # loop for cdf calculation, starting from 0 to k rather factorial
+            for i in range(k + 1):
+                # for cummulative, start from 0 to k rather from 1 to K
+                # calling pmf method to calculate PMF for each value
+                # representing number of events from 0 to k
+                cdf += self.pmf(i)
+            return cdf
