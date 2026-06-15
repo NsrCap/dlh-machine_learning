@@ -85,3 +85,36 @@ class Normal:
         exponent = e ** (-((x - self.mean) ** 2) / (2 * (self.stddev ** 2)))
         pdf = coefficient * exponent
         return pdf
+
+    def cdf(self, x):
+        """calcualte cummulative dist func for normal distribution."""
+        # cdf ==> Probability that the variable is less than or equal to x
+        # cdf = how much probability has accumulated up to value x
+        # value = continous random variable
+        # convert value/variable x to z-score value first and then
+        # get corresponding value for z-score in table or
+        # use erf() function while importing math library
+        # this is an error approx function for ND
+        # F(x) = 0.5 (1+ erf((σ2​x−μ​)/σ2​))
+        # convert into % to understand result
+        # stock prices with mean 70, std deviatin 10 and at x=90 price
+        # means result z = 2 correspond 0.977 pr 97.7%
+        # 97.7% of the stock prices are equal or less than 90USD
+        # so there is 2.3% chance, stock prices will be above 90USD
+
+        # convert real value to z
+        z = (x - self.mean) / (self.stddev * (2 ** 0.5))
+
+        # conver z value to polynomial
+        def erf(x):
+            π = 3.1415926536
+            erf = (2 / (π ** 0.5)) * (
+            x
+            - (x ** 3) / 3
+            + (x ** 5) / 10
+            - (x ** 7) / 42
+            + (x ** 9) / 216
+        )
+            return erf
+        # normal curve from inifinty to z and we need 0 to z on x-axis
+        return (1 + erf(z)) / 2
