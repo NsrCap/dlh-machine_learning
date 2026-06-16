@@ -7,8 +7,8 @@ class Normal:
     def __init__(self, data=None, mean=0., stddev=1.):
         """constructor method."""
         # if data is given, the lambtha is calculated from data,
-        # else it will be provided by the user, by default lambdha is 1.0
-        # simple normal distribution variable P(x) = N(σ,μ)
+        # else it will be provided by the user
+        # in simple normal distribution variable P(x) = N(σ,μ)
         # σ is std deviation, μ is mean of popultion rather sample
         # ND is symmetric means cut into equal half
         # In ND mean = median = mode
@@ -59,7 +59,7 @@ class Normal:
         return (x - self.mean) / self.stddev
 
     def x_value(self, z):
-        """calcualte x-score for given z-score."""
+        """calcualte x value for given z-score."""
         # undo normalisation of data
         # this function does not link to z_score method above
         # it is just to understand coversion
@@ -71,7 +71,6 @@ class Normal:
     def pdf(self, x):
         """calcualte dansity function (likelihood) for normal distribution."""
         # pdf ==> f(x) = 1/σ√2π * e ^ −(x−μ)^2 / 2σ^2
-        # pdf = how popultion distributed densely around specific value
         # value = continous random variable
         # pdf = likelohood or dansity and not probability
         # for proabability, there is another formula
@@ -90,10 +89,9 @@ class Normal:
         # cdf ==> Probability that the variable is less than or equal to x
         # cdf = how much probability has accumulated up to value x
         # value = continous random variable
-        # convert value/variable x to z-score value first and then
+        # convert value/variable x to z-score first and then
         # get corresponding value for z-score in table or
-        # use erf() function while importing math library
-        # this is an error approx function for ND
+        # use erf() function, its an error approx function for ND
         # F(x) = 0.5 (1+ erf((σ2​x−μ​)/σ2​))
         # convert into % to understand result
         # stock prices with mean 70, std deviatin 10 and at x=90 price
