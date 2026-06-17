@@ -76,6 +76,7 @@ class Binomial:
         for i in range(1, k + 1):
             k_factorial *= i
         # nk_factorial = n_factorial - k_factorial is not correct
+        # (n - k)! != n! - k!
         nk_factorial = 1
         for i in range(1, self.n - k + 1):
             nk_factorial *= i
