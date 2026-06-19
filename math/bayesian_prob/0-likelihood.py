@@ -8,7 +8,7 @@ def likelihood(x, n, P):
     if not isinstance(n, int) or n <= 0:
         raise ValueError("n must be a positive integer")
     if not isinstance(x, int) or not x >= 0:
-        raise ValueError("x must be an integer and greater than or == 0")
+        raise ValueError("x must be an integer that is greater than or equal to 0")
     if x > n:
         raise ValueError("x cannot be greater than n")
 
@@ -18,7 +18,7 @@ def likelihood(x, n, P):
         raise TypeError("P must be a 1D numpy.ndarray")
     for value in P:
         if value < 0 or value > 1:
-            raise ValueError("All values in P must be in the range 0 & 1")
+            raise ValueError("All values in P must be in the range [0, 1]")
 
     # P(x|P) = (n/x)p^x (1-p)^n-x
     # prob of observing patients data x given initial prob of side effects p
