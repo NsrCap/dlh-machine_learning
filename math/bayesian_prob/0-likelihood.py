@@ -8,7 +8,10 @@ def likelihood(x, n, P):
     if not isinstance(n, int) or n <= 0:
         raise ValueError("n must be a positive integer")
     if not isinstance(x, int) or not x >= 0:
-        raise ValueError("x must be an integer that is greater than or equal to 0")
+        raise ValueError(
+            "x must be an integer that is"
+            "greater than or equal to 0"
+        )
     if x > n:
         raise ValueError("x cannot be greater than n")
 
