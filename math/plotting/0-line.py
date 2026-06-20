@@ -10,4 +10,5 @@ def line():
     plt.figure(figsize=(6.4, 4.8))
     plt.xlim(0, 10)
     plt.plot(y, 'r-')
+    plt.savefig("line.png")
     plt.show()

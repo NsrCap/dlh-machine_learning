@@ -11,6 +11,7 @@ def scatter():
     # 15 diagonal represents data points spread
     # while 8 off-diagonat represents relationship btw x & y
     # each array contain x, y values for each data point covariance
+    # covariance tell both direction of spread and strength of relationship
     cov = [[15, 8], [8, 15]]
     # make random data points repeatable
     # each time same random data points will be generated
